@@ -42,11 +42,12 @@ module.exports = {
     'lodash/import-scope': 'off',
     'lodash/prefer-noop': 'off',
     'react/display-name': 'off',
-    'react/jsx-max-depth': ['error', {max: 6}],
-    'max-lines': ['error', {max: 300, skipBlankLines: true, skipComments: true}],
-    'max-lines-per-function': ['error', {max: 50}],
+    'react/jsx-max-depth': ['error', { max: 6 }],
+    'max-lines': ['error', { max: 300, skipBlankLines: true, skipComments: true }],
+    'max-lines-per-function': ['error', { max: 50 }],
     'react/jsx-no-bind': 'error',
     'react-native/no-raw-text': 'off',
+    'react/jsx-no-bind': 'off',
   },
   settings: {
     react: {

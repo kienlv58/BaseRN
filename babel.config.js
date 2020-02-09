@@ -1,4 +1,4 @@
-const {has} = require('lodash');
+const { has } = require('lodash');
 
 module.exports = api => {
   if (has(api, 'cache')) {

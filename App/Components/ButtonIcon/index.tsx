@@ -1,5 +1,5 @@
-import React, {ReactElement} from 'react';
-import {Image, Text, TouchableOpacity} from 'react-native';
+import React, { ReactElement } from 'react';
+import { Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
 const ButtonIcon = (): ReactElement => {
@@ -7,7 +7,6 @@ const ButtonIcon = (): ReactElement => {
 
   return (
     <TouchableOpacity style={styles.container}>
-      <Image source={{uri: ''}} />
       <Text>test button</Text>
     </TouchableOpacity>
   );
