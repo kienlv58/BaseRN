@@ -10,7 +10,6 @@ import { selectHomeData } from 'App/Selector/HomeSelector';
 const HomeScreen = (props: BaseScreenProps): ReactElement => {
   const dispatch = useDispatch();
   const dataHome = useSelector(selectHomeData);
-  console.log(props);
   //TODO
 
   useEffect(() => {
