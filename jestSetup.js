@@ -1,5 +1,8 @@
 import { NativeModules as RNNativeModules } from 'react-native';
 
+import './__tests__/__mocks__/mock-async-storage';
+import './__tests__/__mocks__/mock-reactotron';
+
 RNNativeModules.UIManager = RNNativeModules.UIManager || {};
 RNNativeModules.UIManager.RCTView = RNNativeModules.UIManager.RCTView || {};
 RNNativeModules.RNGestureHandlerModule = RNNativeModules.RNGestureHandlerModule || {

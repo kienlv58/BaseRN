@@ -1,9 +1,10 @@
 // Node modules
-import { applyMiddleware, createStore, Middleware, Store, StoreEnhancer } from 'redux';
+import { applyMiddleware, createStore, Middleware, Store, StoreEnhancer, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 // Redux & Sagas
 import rootReducer, { RootStateDefault } from 'App/Redux';
 import rootSaga from 'App/Sagas';
+import Reactotron from './ReactotronConfig';
 
 /**
  * Compose middlewares
@@ -33,8 +34,10 @@ function createStoreWithConfig(): Store {
       }),
     );
   }
-
-  const store = createStore(rootReducer, RootStateDefault, bindMiddleware(middlewares));
+  const enhancers: StoreEnhancer<any, any>[] = [];
+  enhancers.push(bindMiddleware(middlewares));
+  if (Reactotron && Reactotron.createEnhancer) enhancers.push(Reactotron.createEnhancer());
+  const store = createStore(rootReducer, RootStateDefault, compose(...enhancers));
 
   store.sagaTask = sagaMiddleware.run(rootSaga);
 
