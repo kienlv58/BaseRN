@@ -69,6 +69,7 @@
     "jest": "^24.9.0",
     "lint-staged": ">=10",
     "metro-react-native-babel-preset": "^0.56.0",
+    "mock-async-storage": "^2.2.0",
     "prettier": "^1.19.1",
     "react-native-typescript-transformer": "^1.2.13",
     "react-test-renderer": "16.9.0",

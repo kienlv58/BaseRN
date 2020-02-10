@@ -1,7 +1,7 @@
 import { NativeModules as RNNativeModules } from 'react-native';
 
-import './__tests__/__mocks__/mock-async-storage';
-import './__tests__/__mocks__/mock-reactotron';
+import './__tests__/__mocks__/async-storage';
+import './__tests__/__mocks__/reactotron-react-native';
 
 RNNativeModules.UIManager = RNNativeModules.UIManager || {};
 RNNativeModules.UIManager.RCTView = RNNativeModules.UIManager.RCTView || {};

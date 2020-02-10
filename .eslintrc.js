@@ -48,6 +48,7 @@ module.exports = {
     'react/jsx-no-bind': 'error',
     'react-native/no-raw-text': 'off',
     'react/jsx-no-bind': 'off',
+    '@typescript-eslint/ban-ts-ignore': 'warn',
   },
   settings: {
     react: {
