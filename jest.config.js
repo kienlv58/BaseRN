@@ -18,5 +18,6 @@ module.exports = {
   transformIgnorePatterns: [
     'node_modules/(?!(jest-)?react-native|react-native|react-navigation|@react-navigation|@storybook|@react-native-community)',
   ],
+  setupFilesAfterEnv: ['<rootDir>setup-tests.js'],
   // cacheDirectory: '.jest/cache',
 };
