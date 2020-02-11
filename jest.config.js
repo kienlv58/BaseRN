@@ -5,7 +5,7 @@ module.exports = {
   //   '^[./a-zA-Z0-9$_-]+\\.(bmp|gif|jpg|jpeg|png|psd|svg|webp|ttf|otf)$': 'RelativeImageStub',
   //   '^React$': '<rootDir>/node_modules/react',
   // },
-  setupFiles: ['<rootDir>/node_modules/react-native/jest/setup.js', './jestSetup.js'],
+  setupFiles: ['<rootDir>/node_modules/react-native/jest/setup.js', './__tests__/jestSetup.js'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   transform: {
     // '^.+\\.(js)$': 'babel-jest',
