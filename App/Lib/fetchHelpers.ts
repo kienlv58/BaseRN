@@ -1,10 +1,11 @@
-// import Config from 'react-native-config';
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { merge } from 'lodash';
+import Config from 'react-native-config';
+
 import { throwErrorIfEmpty, throwErrorIfMalformed } from './errorHelpers';
 
-// const { API_ENDPOINT, NOTIFICATIONS_API_ENDPOINT } = Config;
-const API_ENDPOINT = 'https://api.github.com/';
+const API_ENDPOINT = Config.API_ENDPOINT;
+console.log('API_ENDPOINT', Config);
 
 /**
  * Universal user object
