@@ -14,6 +14,7 @@ import { enableScreens } from 'react-native-screens';
 
 import Navigation from 'App/Navigation';
 import store from 'App/store';
+import GlobalLoading from 'App/Components/GlobalLoading';
 
 enableScreens();
 
@@ -21,6 +22,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <Navigation />
+      <GlobalLoading />
     </Provider>
   );
 };
