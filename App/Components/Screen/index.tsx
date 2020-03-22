@@ -7,12 +7,14 @@ import {
   View,
   SafeAreaView as SafeAreaViewDefault,
 } from 'react-native';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 import { SafeAreaView as SafeAreaViewReactNavigation } from 'react-native-safe-area-context';
 import ScreenConfig from 'App/Config/ScreenConfig';
 import { ScreenProps } from './screen.props';
 import { isNonScrolling, offsets, presets } from './screen.presets';
 
 const isIos = Platform.OS === 'ios';
+const StatusBarHeight = getStatusBarHeight();
 
 function ScreenWithoutScrolling(props: ScreenProps) {
   const preset = presets.fixed;
@@ -22,7 +24,7 @@ function ScreenWithoutScrolling(props: ScreenProps) {
     ? { backgroundColor: props.safeAreaColor }
     : { backgroundColor: ScreenConfig.safeAreaColor };
   const isCustomizeHeader = props.isCustomizeHeader || false;
-  const keyboardVerticalOffset = isCustomizeHeader ? offsets[props.keyboardOffset || 'none'] : offsets.headerDefault;
+  const keyboardVerticalOffset = isCustomizeHeader ? offsets[props.keyboardOffset || 'none'] : 44 + StatusBarHeight;
   const Wrapper = props.unsafe ? View : isCustomizeHeader ? SafeAreaViewReactNavigation : SafeAreaViewDefault;
 
   return (
@@ -46,7 +48,7 @@ function ScreenWithScrolling(props: ScreenProps) {
     ? { backgroundColor: props.safeAreaColor }
     : { backgroundColor: ScreenConfig.safeAreaColor };
   const isCustomizeHeader = props.isCustomizeHeader || false;
-  const keyboardVerticalOffset = isCustomizeHeader ? offsets[props.keyboardOffset || 'none'] : offsets.headerDefault;
+  const keyboardVerticalOffset = isCustomizeHeader ? offsets[props.keyboardOffset || 'none'] : 44 + StatusBarHeight;
   const Wrapper = props.unsafe ? View : isCustomizeHeader ? SafeAreaViewReactNavigation : SafeAreaViewDefault;
 
   return (

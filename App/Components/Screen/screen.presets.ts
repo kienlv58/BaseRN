@@ -7,7 +7,6 @@ import { Color } from 'App/Theme';
  */
 export const offsets = {
   none: 0,
-  headerDefault: 100,
 };
 
 /**
