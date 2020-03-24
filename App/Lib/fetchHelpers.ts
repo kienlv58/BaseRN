@@ -11,13 +11,17 @@ const API_ENDPOINT = env.API_ENDPOINT;
  * Universal user object
  * This user object is used throughout the app
  */
-let user: any | undefined;
+
+interface User {
+  accessToken: string;
+}
+let user: User | undefined;
 
 /**
  * Update access token into universal user object
  * @param authorizedUser
  */
-export function updateAccessTokenToHeader(authorizedUser: any | undefined): void {
+export function updateAccessTokenToHeader(authorizedUser: User | undefined): void {
   if (authorizedUser) {
     user = {
       ...user,

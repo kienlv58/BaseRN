@@ -11,11 +11,11 @@ export const Actions = {
 };
 
 export interface HomeState {
-  data: any;
+  data: {};
 }
 
 export const defaultState: HomeState = {
-  data: null,
+  data: {},
 };
 
 export const reducer = (state = defaultState, action: UnfoldSagaActionType): HomeState => {

@@ -7,7 +7,7 @@ export const selectGlobal = (state: RootState): GlobalState => get(state, REDUX_
 
 export const selectGlobalLoading = createSelector(
   selectGlobal,
-  (gloabalState: GlobalState): any => gloabalState.isLoading,
+  (gloabalState: GlobalState): boolean => gloabalState.isLoading,
 );
 
 export default {

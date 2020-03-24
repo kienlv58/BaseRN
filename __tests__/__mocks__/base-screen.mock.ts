@@ -1,6 +1,7 @@
 import { BaseScreenProps } from 'App/@types/screen-type';
+import { ScreenMap } from 'App/Config/NavigationConfig';
 
-export const mockBaseScreenProps: BaseScreenProps = {
+export const mockBaseScreenProps: BaseScreenProps<ScreenMap.Home> = {
   navigation: {
     navigate: jest.fn(),
     dispatch: jest.fn(),
@@ -21,7 +22,7 @@ export const mockBaseScreenProps: BaseScreenProps = {
   },
   route: {
     key: '',
-    name: '',
-    params: '',
+    name: ScreenMap.Home,
+    params: {},
   },
 };

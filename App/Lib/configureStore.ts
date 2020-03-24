@@ -34,12 +34,12 @@ function createStoreWithConfig(): Store {
       }),
     );
   }
-  const enhancers: StoreEnhancer<any, any>[] = [];
+  const enhancers: StoreEnhancer<{}, {}>[] = [];
   enhancers.push(bindMiddleware(middlewares));
   if (Reactotron && Reactotron.createEnhancer) enhancers.push(Reactotron.createEnhancer());
   const store = createStore(rootReducer, RootStateDefault, compose(...enhancers));
 
-  store.sagaTask = sagaMiddleware.run(rootSaga);
+  sagaMiddleware.run(rootSaga);
 
   return store;
 }
