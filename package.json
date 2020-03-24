@@ -110,14 +110,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "jest && lint-staged",
+      "pre-commit": "jest && lint-staged && npm run tslint",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --ignore-path .gitignore --ignore-pattern static/ --ext .js,.ts,.tsx --fix",
-      "npm run tslint",
       "prettier --write"
     ]
   }
