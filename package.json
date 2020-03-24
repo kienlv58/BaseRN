@@ -115,8 +115,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --ignore-path .gitignore --ignore-pattern static/ --ext .js,.ts,.tsx --fix",
-      "prettier --write"
+      "prettier --write",
+      "eslint --ignore-path .gitignore --ignore-pattern static/ --ext .js,.ts,.tsx --fix"
     ]
   }
 }

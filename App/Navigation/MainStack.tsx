@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from 'App/Containers/HomeScreen';
 import DetailScreen from 'App/Containers/DetailScreen';
 import { ScreenMap, ScreenParams } from 'App/Config/NavigationConfig';
+
 import ScreenConfig from 'App/Config/ScreenConfig';
 
 const Stack = createStackNavigator<ScreenParams>();
