@@ -6,6 +6,6 @@ export enum ScreenMap {
 }
 
 export interface ScreenParams extends ParamListBase {
-  [ScreenMap.Home]: undefined;
+  [ScreenMap.Home]: {};
   [ScreenMap.Detail]: { userName: string };
 }

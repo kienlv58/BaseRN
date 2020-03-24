@@ -9,7 +9,7 @@ import { apiMap } from 'App/Lib/apiMap';
 export function* takeGetHomeData({ callbacks, type }: UnfoldSagaActionType): Iterable<SagaIterator> {
   yield unfoldSaga(
     {
-      handler: async (): Promise<any> => {
+      handler: async (): Promise<{}> => {
         const { data } = await appApi.get(apiMap.getHomeData);
         return data;
       },

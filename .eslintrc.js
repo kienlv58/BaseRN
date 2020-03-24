@@ -45,9 +45,9 @@ module.exports = {
     'react/jsx-max-depth': ['error', { max: 6 }],
     'max-lines': ['error', { max: 300, skipBlankLines: true, skipComments: true }],
     'max-lines-per-function': ['error', { max: 50 }],
-    'react/jsx-no-bind': 'error',
     'react-native/no-raw-text': 'off',
     'react/jsx-no-bind': 'off',
+    '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/ban-ts-ignore': 'warn',
   },
   settings: {

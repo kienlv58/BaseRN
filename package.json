@@ -17,7 +17,8 @@
     "clean:android": "cd android/ && ./gradlew clean && cd .. && react-native run-android",
     "commit": "npx git-cz",
     "commit:all": "git add . && npx git-cz",
-    "lint": "npm run lint:eslint:fix -- .",
+    "lint": "npm run lint:eslint:fix -- . && npm run tslint",
+    "tslint": "tsc --project ./tsconfig.json --noEmit",
     "lint:eslint": "eslint --ignore-path .gitignore --ignore-pattern static/ --ext .js,.jsx,.tsx,.ts",
     "lint:eslint:fix": "npm run lint:eslint -- --fix",
     "newclear": "rm -rf $TMPDIR/react-* && watchman watch-del-all && rm -rf ios/build && rm -rf node_modules/ && npm cache clean --force && npm i",
@@ -109,7 +110,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "jest && lint-staged",
+      "pre-commit": "jest && lint-staged && npm run tslint",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
