@@ -15,7 +15,7 @@ const globalSlice = createSlice({
   initialState,
   reducers: {
     showLoading(state, action: PayloadAction<{isLoading: boolean}>) {
-      state.isLoading = action.payload.isLoading.test;
+      state.isLoading = action.payload.isLoading;
     },
   },
 });

@@ -13,7 +13,7 @@ export const Home = () => {
   const isa = useSelector((state: RootState) => state.global.isLoading);
   console.log('isa', isa);
   return (
-    <Screen preset="scroll">
+    <Screen preset="test">
       <View>
         <Text>{translate('name')}</Text>
         <Text>This is An ENV Var : {API_URL}</Text>
