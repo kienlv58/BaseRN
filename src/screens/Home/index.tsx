@@ -1,33 +1,27 @@
 import React from 'react';
-import {Button, Screen, showErrorMessage, Text, View} from 'ui';
 import {API_URL} from '@env';
 import {translate, useAuth} from 'core';
 import {useTasks} from 'api';
-import {ActivityIndicator} from 'react-native';
+import {ActivityIndicator, Button, Text, View} from 'react-native';
+import Screen from 'components/Screen';
+import {useSelector} from 'react-redux';
+import {RootState} from 'redux/store';
 
 export const Home = () => {
   const {signOut} = useAuth();
   const {data, isLoading} = useTasks();
+  const isa = useSelector((state: RootState) => state.global.isLoading);
+  console.log('isa', isa);
   return (
-    <Screen>
-      <View flex={1} justifyContent="center">
-        <Text variant="header" textAlign="center">
-          {translate('name')}
-        </Text>
-        <Text variant="body" textAlign="center">
-          This is An ENV Var : {API_URL}
-        </Text>
+    <Screen preset="scroll">
+      <View>
+        <Text>{translate('name')}</Text>
+        <Text>This is An ENV Var : {API_URL}</Text>
         {isLoading && <ActivityIndicator color="#000" />}
 
-        <Text variant="body" textAlign="center">
-          Data from Api : {JSON.stringify(data)}
-        </Text>
-        <Button label="LogOut" onPress={signOut} />
-        <Button
-          variant="secondary"
-          label="Show message"
-          onPress={() => showErrorMessage()}
-        />
+        <Text>Data from Api : {JSON.stringify(data)}</Text>
+        <Button title="SignOut" onPress={signOut} />
+        <Button title="Error" onPress={() => {}} />
       </View>
     </Screen>
   );

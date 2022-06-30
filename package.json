@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "postinstall": "husky install",
+    "pre-commit": "lint-staged",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
@@ -12,14 +14,17 @@
     "setup:ios": "cd ios && pod install --repo-update && cd ..",
     "np": "np --no-publish",
     "postversion": "react-native-version",
-    "xcode": "xed -b ios"
+    "xcode": "xed -b ios",
+    "commit": "cz"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
+    "@react-native-async-storage/async-storage": "^1.17.7",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/bottom-tabs": "^6.3.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/stack": "^6.2.1",
+    "@reduxjs/toolkit": "^1.8.2",
     "@shopify/restyle": "^2.1.0",
     "axios": "^0.25.0",
     "i18n-js": "^3.9.2",
@@ -40,6 +45,9 @@
     "react-native-screens": "^3.13.1",
     "react-native-svg": "^12.3.0",
     "react-query": "^3.34.19",
+    "react-redux": "^8.0.2",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.4.1",
     "yup": "^0.32.11",
     "zustand": "^3.7.2"
   },
@@ -59,16 +67,20 @@
     "babel-jest": "^26.6.3",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
-    "husky": "^6.0.0",
+    "husky": "^8.0.1",
     "jest": "^26.6.3",
-    "lint-staged": "^11.0.0",
+    "lint-staged": "^13.0.2",
     "metro-react-native-babel-preset": "^0.67.0",
     "np": "^7.6.1",
     "npm-run-all": "^4.1.5",
     "react-native-clean-project": "^4.0.1",
+    "react-native-flipper": "^0.151.0",
     "react-native-version": "^4.0.0",
     "react-test-renderer": "17.0.2",
+    "redux-flipper": "^2.0.1",
     "typescript": "4.4.4"
   },
   "resolutions": {
@@ -85,8 +97,23 @@
       "node"
     ]
   },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "lint-staged": {
-    "*.{js,jsx,tsx}": "eslint"
+    "*.{js,ts,tsx}": [
+      "eslint --ignore-path .gitignore --ignore-pattern static/ --ext .js,.ts,.tsx --fix",
+      "prettier --write",
+      "jest --passWithNoTests"
+    ]
   },
   "repository": {
     "type": "git",
